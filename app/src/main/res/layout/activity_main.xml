@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <!--  We use attribute id with name nav_host_fragment to hook up later with NavController in
+    @MainActivity.class  -->
+    <!--  Attribute name will make this layout to act as an host by setting defaultNavHost to true
+    and telling NavHostFragment -->
+    <!--  Width and height are set to match_parent since it occupies whole layout for fragments  -->
+    <!--  Earlier we created xml file navigation we hook this here to set this as default navGraph
+      for our app  -->
+    <fragment
+        android:id="@+id/nav_host_fragment"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:defaultNavHost="true"
+        app:navGraph="@navigation/navigation" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

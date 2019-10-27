@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/vehiclesFragment">
+
+    <fragment
+        android:id="@+id/vehiclesFragment"
+        android:name="com.developersbreach.architecturecomponentsjava.main.VehiclesFragment"
+        android:label="Vehicles"
+        tools:layout="@layout/fragment_vehicles">
+        <action
+            android:id="@+id/action_vehiclesFragment_to_vehicleDetailFragment"
+            app:destination="@id/vehicleDetailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/vehicleDetailFragment"
+        android:name="com.developersbreach.architecturecomponentsjava.detail.VehicleDetailFragment"
+        android:label="Vehicle detail"
+        tools:layout="@layout/fragment_vehicle_detail">
+        <argument
+            android:name="detailFragmentArgs"
+            app:argType="com.developersbreach.architecturecomponentsjava.model.Vehicle" />
+    </fragment>
+
+</navigation>
