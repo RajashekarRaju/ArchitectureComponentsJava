@@ -27,20 +27,11 @@ public class VehiclesFragment extends Fragment {
     private RecyclerView mRecyclerView;
     private VehicleAdapter mVehicleAdapter;
 
-    public VehiclesFragment() {
-        // Required empty public constructor
-    }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        /*
-         * Using Navigation object we find navigation controller with view then we will call
-         * navigate with it's action name and pass argument to open correct item. You can change
-         * this action name "actionVehiclesFragmentToVehicleDetailFragment" of your choice in
-         * navigation.xml file and make both match properly.
-         */
+
         View view = inflater.inflate(R.layout.fragment_vehicles, container, false);
         mRecyclerView = view.findViewById(R.id.vehicle_recycler_view);
         return view;
@@ -59,14 +50,15 @@ public class VehiclesFragment extends Fragment {
         });
     }
 
-    private class VehicleListener implements VehicleAdapter.VehicleAdapterListener {
+    private static class VehicleListener implements VehicleAdapter.VehicleAdapterListener {
 
         @Override
         public void onVehicleSelected(Vehicle vehicle, View view) {
             /*
              * Using Navigation object we find navigation controller with view then we will call
              * navigate with it's action name and pass argument to open correct item. You can change
-             * this action name
+             * this action name "actionVehiclesFragmentToVehicleDetailFragment" of your choice in
+             * navigation.xml file and make both match properly.
              */
             Navigation.findNavController(view).navigate(VehiclesFragmentDirections.actionVehiclesFragmentToVehicleDetailFragment(vehicle));
         }
