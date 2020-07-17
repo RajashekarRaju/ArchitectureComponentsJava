@@ -1,12 +1,11 @@
 package com.developersbreach.architecturecomponentsjava.main;
 
-
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProviders;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -19,19 +18,14 @@ import com.developersbreach.architecturecomponentsjava.model.Vehicle;
 
 import java.util.List;
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class VehiclesFragment extends Fragment {
 
     private RecyclerView mRecyclerView;
     private VehicleAdapter mVehicleAdapter;
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
         View view = inflater.inflate(R.layout.fragment_vehicles, container, false);
         mRecyclerView = view.findViewById(R.id.vehicle_recycler_view);
         return view;
@@ -40,11 +34,11 @@ public class VehiclesFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        VehicleFragmentViewModel viewModel = ViewModelProviders.of(this).get(VehicleFragmentViewModel.class);
-        viewModel.getVehicleData().observe(this, new Observer<List<Vehicle>>() {
+        VehicleFragmentViewModel viewModel = new ViewModelProvider(this).get(VehicleFragmentViewModel.class);
+        viewModel.getVehicleData().observe(getViewLifecycleOwner(), new Observer<List<Vehicle>>() {
             @Override
             public void onChanged(List<Vehicle> vehicleList) {
-                mVehicleAdapter = new VehicleAdapter(getContext(), vehicleList, new VehicleListener());
+                mVehicleAdapter = new VehicleAdapter(vehicleList, new VehicleListener());
                 mRecyclerView.setAdapter(mVehicleAdapter);
             }
         });
@@ -60,7 +54,9 @@ public class VehiclesFragment extends Fragment {
              * this action name "actionVehiclesFragmentToVehicleDetailFragment" of your choice in
              * navigation.xml file and make both match properly.
              */
-            Navigation.findNavController(view).navigate(VehiclesFragmentDirections.actionVehiclesFragmentToVehicleDetailFragment(vehicle));
+            Navigation.findNavController(view).navigate(
+                    VehiclesFragmentDirections.actionVehiclesFragmentToVehicleDetailFragment(vehicle)
+            );
         }
     }
 }

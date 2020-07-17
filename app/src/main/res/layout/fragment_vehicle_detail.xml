@@ -15,7 +15,8 @@
         tools:src="@drawable/ic_motorcycle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ContentDescription" />
 
     <TextView
         android:id="@+id/detail_vehicle_name_text_view"
@@ -23,7 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:gravity="center"
-        android:text="Motorcycle"
+        tools:text="Motorcycle"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Headline4"
         android:textColor="@color/colorPrimary"
         app:layout_constraintEnd_toEndOf="@+id/detail_vehicle_image_view"

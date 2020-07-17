@@ -21,7 +21,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:srcCompat="@drawable/ic_motorcycle" />
+            tools:srcCompat="@drawable/ic_motorcycle"
+            tools:ignore="ContentDescription" />
 
         <TextView
             android:id="@+id/vehicle_name_text_item_view"
