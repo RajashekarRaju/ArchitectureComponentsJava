@@ -9,19 +9,19 @@ import android.os.Bundle;
 
 public class MainActivity extends AppCompatActivity {
 
-    private NavController mNavigationController;
+    private NavController mNavController;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mNavigationController = Navigation.findNavController(this, R.id.nav_host_fragment);
-        NavigationUI.setupActionBarWithNavController(this, mNavigationController);
+        mNavController = Navigation.findNavController(this, R.id.nav_host_fragment);
+        NavigationUI.setupActionBarWithNavController(this, mNavController);
     }
 
     @Override
     public boolean onSupportNavigateUp() {
-        return mNavigationController.navigateUp();
+        return mNavController.navigateUp();
     }
 }

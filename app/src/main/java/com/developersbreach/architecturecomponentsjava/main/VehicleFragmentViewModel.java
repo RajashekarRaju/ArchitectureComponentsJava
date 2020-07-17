@@ -15,7 +15,7 @@ public class VehicleFragmentViewModel extends ViewModel {
 
     // Get vehicle list of data return type MutableLiveData
     MutableLiveData<List<Vehicle>> getVehicleData() {
-        mVehicleData = new MutableLiveData<List<Vehicle>>();
+        mVehicleData = new MutableLiveData<>();
         loadAllVehicles();
         return mVehicleData;
     }
